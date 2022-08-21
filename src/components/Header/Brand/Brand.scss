@@ -1,0 +1,40 @@
+/*Variables*/
+$color__first: #ffffff;
+$color__second: #f30c0c;
+$color__third: rgb(148, 46, 46);
+$color__cuarter: #000000;
+
+/*Mixinns*/
+@mixin flex ($flex_direction, $justify_content, $align_items) {
+    display: flex;
+    flex-direction: $flex_direction;
+    justify-content: $justify_content;
+    align-items: $align_items;
+}
+
+
+.logo {
+    @include flex (row, space-between, center);
+    font-size: 1.5em;
+    font-weight: 600;
+    color: $color__third;
+
+    &__img {
+        margin: 0.3rem 1rem;
+        font-size: 2.2em;
+        transition: all .3s ease-in-out;
+
+        &:hover {
+            transform: scale(1.1, 1.1);
+        }
+
+        &__libro {
+            color: $color__third;
+        }
+
+    }
+
+    &__text {
+        font-size: 1em;
+    }
+}
