@@ -15,13 +15,13 @@ $color__cuarter: #000000;
 
 .logo {
     @include flex (row, space-between, center);
-    font-size: 1.5em;
+    font-size: 1em;
     font-weight: 600;
     color: $color__third;
 
     &__img {
         margin: 0.3rem 1rem;
-        font-size: 2.2em;
+        font-size: 1.9em;
         transition: all .3s ease-in-out;
 
         &:hover {

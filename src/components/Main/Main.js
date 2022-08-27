@@ -1,5 +1,5 @@
 import './Main.scss';
-import {ItemListContainer} from './ItemListContainer/ItemListContainer';
+import {ItemListContainer} from './ItemListContainer/ItemListContainer'
 
 
 export const Main = () => {

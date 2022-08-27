@@ -14,8 +14,8 @@ $color__cuarter: #000000;
 
 .carrito {
     @include flex (column, space-between, center);
-    font-size: 1.5em;
-    margin: 0.3rem 0.5rem;
+    font-size: 1em;
+    margin: 0.1rem 0.5rem;
     transition: all .3s ease-in-out;
     color: $color__third;
 
@@ -24,10 +24,10 @@ $color__cuarter: #000000;
     }
 
     &__cantidad {
-        padding: 0.3rem;
+        font-size: 1rem;
     }
 
     &__img {
-        font-size: 2.2em;
+        font-size: 2rem;
     }
 }
