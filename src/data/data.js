@@ -1,0 +1,38 @@
+
+export const stock = [{
+        id: 1,
+        nombre: "El día que Nieztsche lloró",
+        precio: 1000,
+        cantidad: 3,
+        genero: "Novela",
+        imagen: "https://mmiceli.github.io/AbreCabezasLibros/assets/image/books/dia_nietzsche_lloro.jpg",
+        activoMenu: true,
+    },
+    {
+        id: 2,
+        nombre: "Fechas patrias",
+        precio: 2000,
+        cantidad: 20,
+        genero: "Historico",
+        imagen: "https://mmiceli.github.io/AbreCabezasLibros/assets/image/books/fechas_patrias.jpg",
+        activoMenu: true,
+    },
+    {
+        id: 3,
+        nombre: "Harry Potter",
+        precio: 500,
+        cantidad: 20,
+        genero: "Infantil",
+        imagen: "https://mmiceli.github.io/AbreCabezasLibros/assets/image/books/harry_potter.jpg",
+        activoMenu: true,
+    },
+    {
+        id: 4,
+        nombre: "Invictor y mayo",
+        precio: 3000,
+        cantidad: 15,
+        genero: "Infantil",
+        imagen: "https://mmiceli.github.io/AbreCabezasLibros/assets/image/books/invictor_mayo.jpg",
+        activoMenu: false,
+    },
+]

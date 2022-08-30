@@ -1,3 +1,4 @@
+
 @mixin flex ($flex_direction, $justify_content, $align_items) {
     display: flex;
     flex-direction: $flex_direction;
@@ -5,8 +6,9 @@
     align-items: $align_items;
 }
 
-.itemListContainer {
-    @include flex (column, space-between, center);
-    padding:1.5rem 2rem;
+.itemList {
+    @include flex (row, center, stretch);
     font-size: 1em; 
+    flex-wrap: wrap;
+    margin: 2rem;
 }
