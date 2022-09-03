@@ -2,15 +2,24 @@
 
 import './App.scss';
 import {Header} from './components/Header/Header';
-import {Main} from './components/Main/Main';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {ItemListContainer} from './components/Main/ItemListContainer/ItemListContainer'
+import {ItemDetailContainer} from './components/Main/ItemDetailContainer/ItemDetailContainer'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 const App = () => {
   return (
     <div >
-      <Header/>
-      <Main/>
-      <footer/>
+      <BrowserRouter>
+        <Header/>
+        <Routes>
+          <Route path='/' element={<ItemListContainer/>}/>
+          <Route path='/libros/:categoryId' element={<ItemListContainer/>}/>
+          <Route path='/item/:itemId' element={<ItemDetailContainer/>}/>
+          <Route path='*' element={ <Navigate to="/"/>} />         
+        </Routes>
+        {/*<Footer/>*/}
+      </BrowserRouter>
     </div>
   );
 }

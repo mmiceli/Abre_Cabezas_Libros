@@ -1,20 +1,18 @@
-@mixin flex ($flex_direction, $justify_content, $align_items) {
-    display: flex;
-    flex-direction: $flex_direction;
-    justify-content: $justify_content;
-    align-items: $align_items;
-}
 
 .item1 {
-    @include flex (column, center, center); 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: 1rem;
     transition: all .3s ease-in-out;
+    width: 12rem;
+    height: 24rem;
     flex-wrap: wrap;
     font-size: 0.8em;
 
     &:hover {
         transform: scale(1.1, 1.1);
-        padding: 0.1rem;
     }
 
 }

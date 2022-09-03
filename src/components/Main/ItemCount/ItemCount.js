@@ -28,11 +28,9 @@ export const ItemCount = ({stock}) => {
                 <span className="mx-2">{counter}</span>
                 <button onClick={handleSumar} className="btn btn-outline-danger">+</button>
             </div>
-            <div>
-                <p>Stock: {stock} items</p>
-            </div>
-            <div>
-                <button className="btn btn-outline-danger">Agregar al carrito</button>
+            <div className="buttonAddCart__button">
+                <button className="btn btn-danger buttonAddCart__button__item">Comprar ahora</button>
+                <button className="btn btn-outline-danger buttonAddCart__button__item">Agregar al carrito</button>
             </div>
         </div>
     )

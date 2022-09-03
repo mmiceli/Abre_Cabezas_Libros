@@ -1,11 +1,6 @@
-/*Helpers*/
-.container {
-    max-width: 1080px;
-    margin: 0 auto;
-}
 
-/*Import font*/
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,600;0,700;1,100;1,200;1,300;1,600;1,800&display=swap');
+// /*Import font*/
+// @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,600;0,700;1,100;1,200;1,300;1,600;1,800&display=swap');
 
 /*Normalize*/
 *,
@@ -17,21 +12,17 @@
 }
 
 /*Globals */
-html {
-    font-family: 'Montserrat',sans-serif;
-    font-weight: none;
-    line-height: none;
-}
+// html {
+//     font-family: 'Montserrat',sans-serif;
+//     font-weight: none;
+//     line-height: none;
+// }
 
-body {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    min-height: 100vh;
-}
-
-ul {
-    list-style-type: none;
-}
+// body {
+//     display: grid;
+//     grid-template-rows: auto 1fr auto;
+//     min-height: 100vh;
+// }
 
 
 

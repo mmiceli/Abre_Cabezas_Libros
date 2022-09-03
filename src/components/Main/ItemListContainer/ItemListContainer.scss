@@ -1,12 +1,12 @@
-@mixin flex ($flex_direction, $justify_content, $align_items) {
-    display: flex;
-    flex-direction: $flex_direction;
-    justify-content: $justify_content;
-    align-items: $align_items;
-}
 
 .itemListContainer {
-    @include flex (column, space-between, center);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     padding:1.5rem 2rem;
-    font-size: 1em; 
+
+    &__titule {
+        color: #942e2e;
+    }
 }

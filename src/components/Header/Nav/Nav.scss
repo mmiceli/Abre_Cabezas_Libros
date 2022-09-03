@@ -5,8 +5,21 @@ $color__second: #f30c0c;
 $color__third: #942e2e;
 $color__cuarter: #000000;
 
-.item {
-    font-size: 1em !important;
-    padding: 0.2rem 0.6rem !important;
-    color: $color__third !important;
+a {
+    text-decoration: none;
+    display: inline-block;
 }
+
+.navLocal {
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;
+
+    &__link {
+        padding: 0.2rem 0.6rem !important;
+        color: $color__third !important;
+        text-decoration: none;
+    }
+}
+

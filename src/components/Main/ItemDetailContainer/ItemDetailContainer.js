@@ -1,28 +1,23 @@
 
-import './ItemListContainer.scss';
+import './ItemDetailContainer.scss';
 //import {ItemCount} from '../ItemCount/ItemCount'
 import { pedirDatos } from '../../../helpers/pedirDatos';
 import { useEffect, useState } from 'react';
-import { ItemList } from '../ItemList/ItemList';
+import { ItemDetail } from '../ItemDetail/ItemDetail';
 import { useParams } from 'react-router-dom';
 
-export const ItemListContainer = () => {
+export const ItemDetailContainer = () => {
 
-    const [items, setItems] = useState ([])
+    const [item, setItem] = useState (null)
     const [loading, setLoading] = useState(true)
 
-    const {categoryId} = useParams ()
-        
+    const {itemId} = useParams ()        
 
     useEffect (() => {
         setLoading(true)
         pedirDatos ()
             .then ((res)=> {
-                if(!categoryId) {
-                    setItems (res)
-                }else {
-                    setItems (res.filter((item)=> item.genero===categoryId))
-                }
+                setItem (res.find((item)=> item.id === Number(itemId)))
             })
             .catch( (error) => {
                 console.log(error)
@@ -31,21 +26,18 @@ export const ItemListContainer = () => {
                 setLoading(false)
             })
                 
-    }, [categoryId])
+    }, [])
 
     return (
-        <div className="itemListContainer container">
-           <h4 className="itemListContainer__titule">Libros</h4>
+        <div className="itemDetailContainer container">
             {
                 loading 
                 ? <p>Cargando...</p>
-                : <ItemList items = {items}/>
+                : <ItemDetail item = {item}/>
             }
-            
         </div>
     )
 }
-
 
 //<ItemCount stock="8"/>
 //<ItemCount stock="10"/>
