@@ -2,6 +2,7 @@ import './ItemCount.scss';
 import { useState } from "react";
 
 export const ItemCount = ({stock}) => {
+  
     const [counter, setCounter] = useState (0) //Estado, gral se usa setXXX. const [variable, fn] = useState (valor de variable)
 
     const handleSumar = () => {

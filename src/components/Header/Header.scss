@@ -1,9 +1,3 @@
-/*Variables*/
-$color__first: #ffffff;
-$color__second: #f30c0c;
-$color__third: #942e2e;
-$color__cuarter: #000000;
-
 /*Mixinns*/
 @mixin flex ($flex_direction, $justify_content, $align_items) {
   display: flex;
@@ -15,7 +9,6 @@ $color__cuarter: #000000;
 p {
   margin-bottom: 0rem !important;
 }
-
 
 
 /*Header and Navbar*/

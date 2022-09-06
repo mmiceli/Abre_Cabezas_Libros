@@ -1,23 +1,12 @@
-/*Variables*/
-$color__first: #ffffff;
-$color__second: #f30c0c;
-$color__third: rgb(148, 46, 46);
-$color__cuarter: #000000;
-
-/*Mixinns*/
-@mixin flex ($flex_direction, $justify_content, $align_items) {
-    display: flex;
-    flex-direction: $flex_direction;
-    justify-content: $justify_content;
-    align-items: $align_items;
-}
-
 .carrito {
-    @include flex (column, space-between, center);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     font-size: 1em;
     margin: 0.1rem 0.5rem;
     transition: all .3s ease-in-out;
-    color: $color__third;
+    color: #942e2e;
 
     &:hover {
         transform: scale(1.1, 1.1);

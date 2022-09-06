@@ -38,6 +38,3 @@ export const ItemDetailContainer = () => {
         </div>
     )
 }
-
-//<ItemCount stock="8"/>
-//<ItemCount stock="10"/>

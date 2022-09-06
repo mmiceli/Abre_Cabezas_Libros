@@ -1,10 +1,4 @@
 
-/*Variables*/
-$color__first: #ffffff;
-$color__second: #f30c0c;
-$color__third: #942e2e;
-$color__cuarter: #000000;
-
 a {
     text-decoration: none;
     display: inline-block;
@@ -18,7 +12,7 @@ a {
 
     &__link {
         padding: 0.2rem 0.6rem !important;
-        color: $color__third !important;
+        color:  #942e2e !important;
         text-decoration: none;
     }
 }
