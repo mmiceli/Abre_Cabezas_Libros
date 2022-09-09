@@ -1,9 +1,7 @@
 import './ItemCount.scss';
-import { useState } from "react";
 
-export const ItemCount = ({stock}) => {
+export const ItemCount = ({stock, counter, setCounter, handleAgregar}) => {
   
-    const [counter, setCounter] = useState (0) //Estado, gral se usa setXXX. const [variable, fn] = useState (valor de variable)
 
     const handleSumar = () => {
         if (counter<stock) {
@@ -16,7 +14,6 @@ export const ItemCount = ({stock}) => {
             setCounter (counter-1)
         }
     }
-
 
     //useEffect (fn, array de dependencia)
     //useEffect (()=> {console.log ("Sole")}, []) //de esta forma solo se monta una sola vez
@@ -31,7 +28,7 @@ export const ItemCount = ({stock}) => {
             </div>
             <div className="buttonAddCart__button">
                 <button className="btn btn-danger buttonAddCart__button__item">Comprar ahora</button>
-                <button className="btn btn-outline-danger buttonAddCart__button__item">Agregar al carrito</button>
+                <button onClick={handleAgregar} className="btn btn-outline-danger buttonAddCart__button__item">Agregar al carrito</button>
             </div>
         </div>
     )

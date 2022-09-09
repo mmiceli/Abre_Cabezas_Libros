@@ -3,8 +3,9 @@
 .itemDetailContainer {
     padding:2rem;
     margin: 0rem 3rem;
-}
+    display: center;
 
-.carga {
-    align-items: center;
+    &_texto {
+        text-align: center;
+    }
 }
