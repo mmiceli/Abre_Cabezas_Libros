@@ -2,7 +2,7 @@ import './Header.scss';
 import {Brand} from './Brand/Brand';
 import {List} from './Nav/Nav';
 import {Search} from './Search/Search';
-import {Cart} from './Cart/Cart';
+import {CartLogo} from './CartLogo/CartLogo';
 
 export const Header = () => {
     return (
@@ -13,7 +13,7 @@ export const Header = () => {
                     <Search/>
                     <List/>
                 </div>
-                <Cart/>
+                <CartLogo/>
             </section>
         </header>
     )

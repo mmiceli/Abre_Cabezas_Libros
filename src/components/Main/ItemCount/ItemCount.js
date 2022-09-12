@@ -1,4 +1,5 @@
 import './ItemCount.scss';
+import { Link } from 'react-router-dom'
 
 export const ItemCount = ({stock, counter, setCounter, handleAgregar}) => {
   
@@ -28,7 +29,9 @@ export const ItemCount = ({stock, counter, setCounter, handleAgregar}) => {
             </div>
             <div className="buttonAddCart__button">
                 <button className="btn btn-danger buttonAddCart__button__item">Comprar ahora</button>
-                <button onClick={handleAgregar} className="btn btn-outline-danger buttonAddCart__button__item">Agregar al carrito</button>
+                <Link to={`/cart`} className="buttonAddCart__button__item">
+                    <button onClick={handleAgregar} className="btn btn-outline-danger buttonAddCart__button__item">Agregar al carrito</button>
+                </Link>
             </div>
         </div>
     )
