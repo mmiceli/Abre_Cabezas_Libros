@@ -7,22 +7,30 @@ import {ItemListContainer} from './components/Main/ItemListContainer/ItemListCon
 import {ItemDetailContainer} from './components/Main/ItemDetailContainer/ItemDetailContainer'
 import {CartContainer} from './components/Main/CartContainer/CartContainer'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { CartProvider} from './context/CartContext'
+
+
+//Corte en 1,05 el video
 
 const App = () => {
+
+
+
   return (
-    <div >
-      <BrowserRouter>
-        <Header/>
-        <Routes>
-          <Route path='/' element={<ItemListContainer/>}/>
-          <Route path='/libros/:categoryId' element={<ItemListContainer/>}/>
-          <Route path='/item/:itemId' element={<ItemDetailContainer/>}/>
-          <Route path='/cart' element={<CartContainer/>}/>
-          <Route path='*' element={ <Navigate to="/"/>} />         
-        </Routes>
-        {/*<Footer/>*/}
-      </BrowserRouter>
-    </div>
+    
+      <CartProvider>
+        <BrowserRouter>
+          <Header/>
+          <Routes>
+            <Route path='/' element={<ItemListContainer/>}/>
+            <Route path='/libros/:categoryId' element={<ItemListContainer/>}/>
+            <Route path='/item/:itemId' element={<ItemDetailContainer/>}/>
+            <Route path='/cart' element={<CartContainer/>}/>
+            <Route path='*' element={ <Navigate to="/"/>} />         
+          </Routes>
+          {/*<Footer/>*/}
+        </BrowserRouter>
+      </CartProvider>
   );
 }
 

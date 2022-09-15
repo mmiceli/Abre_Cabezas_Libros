@@ -1,15 +1,24 @@
 
 import './CartContainer.scss';
-import { Cart } from '../Cart/Cart';
-//import { useEffect, useState } from 'react';
-//import { useParams } from 'react-router-dom';
+import { CartItem } from '../CartItem/CartItem';
+import { useContext } from "react";
+import { CartContext } from "../../../context/CartContext";
+
 
 export const CartContainer = () => {
 
+    const {cartTotalCost} = useContext (CartContext)
 
     return (
-        <div className="CartContainer container">
-            <p>Prueba</p>
+        <div className="cartContainer container">
+            <h3>Mi carrito</h3>
+            {
+                cartTotalCost () ===0
+                ? 
+                <p>El carrito se encuentra vacío</p>
+                : 
+                <CartItem/> 
+            }
         </div>
     )
 }
