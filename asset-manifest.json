@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Abre_Cabezas_Libros/static/css/main.0dcd3fa8.css",
+    "main.js": "/Abre_Cabezas_Libros/static/js/main.c04263cc.js",
+    "static/js/787.fb945bd0.chunk.js": "/Abre_Cabezas_Libros/static/js/787.fb945bd0.chunk.js",
+    "index.html": "/Abre_Cabezas_Libros/index.html",
+    "main.0dcd3fa8.css.map": "/Abre_Cabezas_Libros/static/css/main.0dcd3fa8.css.map",
+    "main.c04263cc.js.map": "/Abre_Cabezas_Libros/static/js/main.c04263cc.js.map",
+    "787.fb945bd0.chunk.js.map": "/Abre_Cabezas_Libros/static/js/787.fb945bd0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0dcd3fa8.css",
+    "static/js/main.c04263cc.js"
+  ]
+}
