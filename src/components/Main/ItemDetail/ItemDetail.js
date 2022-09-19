@@ -20,7 +20,9 @@ export const ItemDetail = ({item}) => {
             id: item.id,
             img: item.imagen,
             nombre: item.nombre,
-            precio: item.precio - (item.precio * (item.descuento/100)),
+            precio: item.precio,
+            descuento: item.descuento,
+            precioOff: item.precio - (item.precio * (item.descuento/100)),
             cantidad    
         }
 
@@ -45,7 +47,7 @@ export const ItemDetail = ({item}) => {
                     isInCart (item.id) //devuelve true o false
                     ? 
                         <Link to={`/cart`} className="buttonAddCart__button__item">
-                                <button className="btn btn-danger">Comprar ahora</button>
+                                <button className="btn btn-danger">Terminar mi compra</button>
                         </Link>
                     : 
                         <ItemCount 

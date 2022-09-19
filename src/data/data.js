@@ -25,11 +25,11 @@ export const stock = [{
         id: 3,
         nombre: "Harry Potter",
         precio: 500,
-        stock: 20,
+        stock: 12,
         genero: "infantil",
         imagen: "https://mmiceli.github.io/AbreCabezasLibros/assets/image/books/harry_potter.jpg",
         imagenDos: "https://mmiceli.github.io/Abre_Cabezas_Libros/public/Imagen/books/todos.jpg",
-        descuento: 15,
+        descuento: null,
         activoMenu: true,
     },
     {
@@ -62,7 +62,7 @@ export const stock = [{
         genero: "infantil",
         imagen: "https://mmiceli.github.io/AbreCabezasLibros/assets/image/books/pokemon.jpg",
         imagenDos: "https://mmiceli.github.io/Abre_Cabezas_Libros/public/Imagen/books/todos.jpg",
-        descuento: 10,
+        descuento: null,
         activoMenu: true,
     },
     {
@@ -73,7 +73,7 @@ export const stock = [{
         genero: "novela",
         imagen: "https://mmiceli.github.io/AbreCabezasLibros/assets/image/books/sari_rojo.jpg",
         imagenDos: "https://mmiceli.github.io/Abre_Cabezas_Libros/public/Imagen/books/todos.jpg",
-        descuento: 5,
+        descuento: null,
         activoMenu: true,
     },
     {
@@ -95,7 +95,7 @@ export const stock = [{
         genero: "infantil",
         imagen: "https://mmiceli.github.io/AbreCabezasLibros/assets/image/books/toda_mafalda.jpg",
         imagenDos: "https://mmiceli.github.io/Abre_Cabezas_Libros/public/Imagen/books/todos.jpg",
-        descuento: 0,
+        descuento: null,
         activoMenu: true,
     },
     {
@@ -106,7 +106,7 @@ export const stock = [{
         genero: "novela",
         imagen: "https://mmiceli.github.io/AbreCabezasLibros/assets/image/books/tres_nombres_lobo.jpg",
         imagenDos: "https://mmiceli.github.io/Abre_Cabezas_Libros/public/Imagen/books/todos.jpg",
-        descuento: 0,
+        descuento: null,
         activoMenu: true,
     }
 ]

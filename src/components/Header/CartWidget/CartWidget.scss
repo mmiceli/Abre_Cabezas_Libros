@@ -12,8 +12,15 @@
         transform: scale(1.1, 1.1);
     }
 
-    &__cantidad {
+    &__cantidadVis {
         font-size: 1rem;
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &__cantidadNoVis {
+        font-size: 1rem;
+        visibility: hidden;
     }
 
     &__img {

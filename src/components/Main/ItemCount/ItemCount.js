@@ -23,12 +23,24 @@ export const ItemCount = ({stock, counter, setCounter, handleAgregar}) => {
     return (
         <div className='buttonAddCart'>
             <div className="my-2">
-                <button onClick={handleRestar} className="btn btn-outline-danger">-</button>
+                <button 
+                    onClick={handleRestar} 
+                    className={`btn ${counter!==0 ? "btn-outline-danger" : "btn btn-secondary"}`}
+                    disabled={counter===0} // inactiva el boton
+                >-</button>
                 <span className="mx-2">{counter}</span>
-                <button onClick={handleSumar} className="btn btn-outline-danger">+</button>
+                <button 
+                    onClick={handleSumar} 
+                    className={`btn ${counter!==stock ? "btn-outline-danger" : "btn btn-secondary"}`}
+                    disabled={counter===stock}
+                >+</button>
             </div>
             <div className="buttonAddCart__button">
-                <button onClick={handleAgregar} className="btn btn-outline-danger buttonAddCart__button__item">Agregar al carrito</button>          
+                <button 
+                    onClick={handleAgregar} 
+                    className={`btn buttonAddCart__button__item ${counter!==0 ? "btn-outline-danger" : "btn btn-outline-secondary"}`}
+                    disabled={counter===0}
+                >Agregar al carrito</button>          
             </div>
         </div>
     )

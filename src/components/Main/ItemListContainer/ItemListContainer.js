@@ -2,6 +2,7 @@ import './ItemListContainer.scss';
 //import {ItemCount} from '../ItemCount/ItemCount'
 import {pedirDatos} from '../../../helpers/pedirDatos';
 import {useEffect,useState} from 'react';
+import { Loader } from '../Loader/Loader';
 import {ItemList} from '../ItemList/ItemList';
 import {useParams} from 'react-router-dom';
 
@@ -38,9 +39,8 @@ export const ItemListContainer = () => {
             <h4 className = "itemListContainer__titule" > Libros </h4> 
             {
                 loading
-                ?
-                    < p > Cargando... </p> :
-                    < ItemList items = {items}/>
+                ? <Loader/>
+                : <ItemList items = {items}/>
             }
 
         </div>

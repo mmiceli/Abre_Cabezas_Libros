@@ -1,9 +1,9 @@
 
 import './ItemDetailContainer.scss';
-//import {ItemCount} from '../ItemCount/ItemCount'
 import { pedirDatos } from '../../../helpers/pedirDatos';
 import { useEffect, useState } from 'react';
 import { ItemDetail } from '../ItemDetail/ItemDetail';
+import { Loader } from '../Loader/Loader'
 import { useParams } from 'react-router-dom';
 
 export const ItemDetailContainer = () => {
@@ -32,7 +32,7 @@ export const ItemDetailContainer = () => {
         <div className="itemDetailContainer container">
             {
                 loading 
-                ? <p className='itemDetailContainer_texto'>Cargando...</p>
+                ? <Loader/>
                 : <ItemDetail item = {item}/>
             }
         </div>
