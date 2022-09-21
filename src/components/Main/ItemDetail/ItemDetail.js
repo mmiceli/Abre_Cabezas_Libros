@@ -10,7 +10,6 @@ import './ItemDetail.scss';
 export const ItemDetail = ({item}) => {
 
     const {cart, addToCart, isInCart} = useContext (CartContext)
-    console.log (cart)
 
     const [cantidad, setCantidad] = useState (1) //Estado, gral se usa setXXX. const [variable, fn] = useState (valor de variable)
 

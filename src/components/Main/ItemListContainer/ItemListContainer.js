@@ -1,42 +1,75 @@
 import './ItemListContainer.scss';
-//import {ItemCount} from '../ItemCount/ItemCount'
-import {pedirDatos} from '../../../helpers/pedirDatos';
+//import {pedirDatos} from '../../../helpers/pedirDatos';
 import {useEffect,useState} from 'react';
-import { Loader } from '../Loader/Loader';
+import {Loader} from '../Loader/Loader';
 import {ItemList} from '../ItemList/ItemList';
 import {useParams} from 'react-router-dom';
+import {collection, getDocs, query, where} from "firebase/firestore";
+import {db} from '../../../firebase/firebase';
 
 export const ItemListContainer = () => {
 
     const [items, setItems] = useState([])
     const [loading, setLoading] = useState(true)
 
-    const {
-        categoryId
-    } = useParams()
+    const {categoryId, busquedaId} = useParams()
+
 
     useEffect(() => {
         setLoading(true)
-        pedirDatos()
+
+        const productosRef = collection (db, 'Productos')
+
+        let q= null
+
+        if (categoryId) {
+             q= query (productosRef, where ('genero', '==', categoryId))
+
+        } else if (busquedaId) { 
+            q= query (productosRef, where ('nombre', '==', busquedaId))
+
+        } else {
+            q= productosRef
+        }
+
+
+
+        // const q = pruebaId
+        //          ? query (productosRef, where ('genero', '==', pruebaId))
+        //          : productosRef
+
+        getDocs (q)
+
             .then((res) => {
-                if (!categoryId) {
-                    setItems(res)
-                } else {
-                    setItems(res.filter((item) => item.genero === categoryId))
-                }
+                const productosDB = res.docs.map ((doc)=> ({id:doc.id, ...doc.data ()}))
+                setItems (productosDB)
+                console.log (productosDB)
             })
-            .catch((error) => {
-                console.log(error)
-            })
+
             .finally(() => {
                 setLoading(false)
             })
 
-    }, [categoryId])
+        // pedirDatos()
+        //     .then((res) => {
+        //         if (!categoryId) {
+        //             setItems(res)
+        //         } else {
+        //             setItems(res.filter((item) => item.genero === categoryId))
+        //         }
+        //     })
+        //     .catch((error) => {
+        //         console.log(error)
+        //     })
+        //     .finally(() => {
+        //         setLoading(false)
+        //     })
 
-    return ( 
+    }, [categoryId, busquedaId])
+
+    return (
         <div className = "itemListContainer container">
-            <h4 className = "itemListContainer__titule" > Libros </h4> 
+            <h4 className = "itemListContainer__titule" > Libros </h4>
             {
                 loading
                 ? <Loader/>
