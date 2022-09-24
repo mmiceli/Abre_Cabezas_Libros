@@ -21,5 +21,13 @@
         border: solid;
         border-color: rgb(234, 232, 232);
         border-radius: 0.5rem;
+
+        &__button {
+            width: 80%;
+
+            &__link {
+                width: 100%;
+            }
+        }
     }
 }

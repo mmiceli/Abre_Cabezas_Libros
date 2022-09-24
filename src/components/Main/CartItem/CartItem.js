@@ -32,6 +32,8 @@ export const CartItem = () => {
             </div>
             ))}
             <h5 className='cartItem__total'>Total: {cartTotalCost ()}$</h5>
+            <Link to={'/orderPurchase'} className="btn btn-danger cartItem__button">Terminar compra</Link>
+            <hr/>
             <button onClick={clearCart} className="btn btn-outline-danger cartItem__button">Vaciar carrito </button>
         </div>
     )

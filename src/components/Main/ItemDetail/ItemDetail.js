@@ -9,7 +9,7 @@ import './ItemDetail.scss';
 
 export const ItemDetail = ({item}) => {
 
-    const {cart, addToCart, isInCart} = useContext (CartContext)
+    const {addToCart, isInCart} = useContext (CartContext)
 
     const [cantidad, setCantidad] = useState (1) //Estado, gral se usa setXXX. const [variable, fn] = useState (valor de variable)
 
@@ -44,10 +44,14 @@ export const ItemDetail = ({item}) => {
 
                 {
                     isInCart (item.id) //devuelve true o false
-                    ? 
-                        <Link to={`/cart`} className="buttonAddCart__button__item">
-                                <button className="btn btn-danger">Terminar mi compra</button>
+                    ? <>
+                        <Link to={`/cart`} className="my-2 itemDetail__sectionTwo__button">
+                            <button className="btn btn-danger itemDetail__sectionTwo__button__link">Ir al carrito</button>
                         </Link>
+                        <Link to={`/orderPurchase`} className="my-2 itemDetail__sectionTwo__button">
+                            <button className="btn btn-outline-danger itemDetail__sectionTwo__button__link">Terminar compra</button>
+                        </Link>
+                        </>
                     : 
                         <ItemCount 
                         stock={item.stock}

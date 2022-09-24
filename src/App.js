@@ -6,11 +6,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {ItemListContainer} from './components/Main/ItemListContainer/ItemListContainer'
 import {ItemDetailContainer} from './components/Main/ItemDetailContainer/ItemDetailContainer'
 import {CartContainer} from './components/Main/CartContainer/CartContainer'
+import {OrderPurchase} from './components/Main/OrderPurchase/OrderPurchase'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { CartProvider} from './context/CartContext'
 
-
-//Corte en 1,05 el video
 
 const App = () => {
 
@@ -27,7 +26,8 @@ const App = () => {
             <Route path='/busqueda/:busquedaId' element={<ItemListContainer/>}/>
             <Route path='/item/:itemId' element={<ItemDetailContainer/>}/>
             <Route path='/cart' element={<CartContainer/>}/>
-            <Route path='*' element={ <Navigate to="/"/>} />         
+            <Route path='/orderPurchase' element={<OrderPurchase/>}/> 
+            <Route path='*' element={ <Navigate to="/"/>} />   
           </Routes>
           {/*<Footer/>*/}
         </BrowserRouter>
