@@ -13,6 +13,7 @@
         align-items: center;
         margin:1.5rem;
         flex-basis: 70%;
+        max-width: 70vh;
 
     }
     &__sectionTwo {
@@ -21,6 +22,11 @@
         border: solid;
         border-color: rgb(234, 232, 232);
         border-radius: 0.5rem;
+        min-height: 60vh;
+
+        &__medioPago {
+            color:  rgb(74, 158, 74);
+        }
 
         &__button {
             width: 80%;
@@ -28,6 +34,22 @@
             &__link {
                 width: 100%;
             }
+        }
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .itemDetail {
+        flex-wrap: wrap;
+
+        &__sectionOne {
+            min-height: 250px;
+    
+        }
+
+        &__sectionTwo {
+            flex-basis: 80%;
+            min-height: 45vh;
         }
     }
 }

@@ -12,10 +12,10 @@ export function ItemCarousel ({item}) {
           src={imagen}
           alt="First slide"
         />
-        <Carousel.Caption>
+        {/* <Carousel.Caption>
           <h3></h3>
           <p></p>
-        </Carousel.Caption>
+        </Carousel.Caption> */}
       </Carousel.Item>
       <Carousel.Item>
         <img
@@ -23,11 +23,10 @@ export function ItemCarousel ({item}) {
           src={imagenDos}
           alt="Second slide"
         />
-
-        <Carousel.Caption>
+        {/* <Carousel.Caption>
           <h3></h3>
           <p></p>
-        </Carousel.Caption>
+        </Carousel.Caption> */}
       </Carousel.Item>
     </Carousel>
   );

@@ -1,28 +1,29 @@
 import './ItemCount.scss';
-//import { Link } from 'react-router-dom'
+import { CartContext } from '../../../context/CartContext';
+import { useContext } from "react";
 
-export const ItemCount = ({stock, counter, setCounter, handleAgregar}) => {
-  
+export const ItemCount = ({stock, counter, setCounter, id}) => {
+
+    const {modifyItemCart} = useContext (CartContext)
 
     const handleSumar = () => {
         if (counter<stock) {
             setCounter (counter+1) //Modifico un estado. Al modificar el estado cambio la variable.
+            modifyItemCart (id, counter+1)
         } 
     }
 
     const handleRestar = () => {
         if (counter>0) {
             setCounter (counter-1)
+            modifyItemCart (id, counter-1)
         }
     }
 
-    //useEffect (fn, array de dependencia)
-    //useEffect (()=> {console.log ("Sole")}, []) //de esta forma solo se monta una sola vez
-    //useEffect (()=> {console.log ("Sole")}, [counter]) //de esta forma se monta cada vez que se actualice counter
-
     return (
-        <div className='buttonAddCart'>
-            <div className="my-2">
+        <div className='itemCount'>
+            <p className="my-1">Stock: {stock} items</p>
+            <div className="">
                 <button 
                     onClick={handleRestar} 
                     className={`btn ${counter!==0 ? "btn-outline-danger" : "btn btn-secondary"}`}
@@ -35,17 +36,7 @@ export const ItemCount = ({stock, counter, setCounter, handleAgregar}) => {
                     disabled={counter===stock}
                 >+</button>
             </div>
-            <div className="buttonAddCart__button">
-                <button 
-                    onClick={handleAgregar} 
-                    className={`btn buttonAddCart__button__item ${counter!==0 ? "btn-outline-danger" : "btn btn-outline-secondary"}`}
-                    disabled={counter===0}
-                >Agregar al carrito</button>          
-            </div>
         </div>
     )
 }
 
-/* <Link to={`/cart`} className="buttonAddCart__button__item">
-<button onClick={handleAgregar} className="btn btn-outline-danger buttonAddCart__button__item">Agregar al carrito</button>
-</Link> */

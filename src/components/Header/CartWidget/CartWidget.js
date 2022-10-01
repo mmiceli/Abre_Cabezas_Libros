@@ -12,7 +12,7 @@ export const CartWidget = () => {
         <div className="carrito">
             <span className={`${cartTotalQuantity () > 0 ?'carrito__cantidadVis':'carrito__cantidadNoVis'}`}>{cartTotalQuantity()}</span>
             <picture id="ver" className="">
-                <Link to="/cart"><i className="fa-solid fa-cart-arrow-down carrito__img"></i></Link>
+                <Link to="/cart"><i className="fa-solid fa-cart-arrow-down carrito__img"/></Link>
             </picture>
         </div>
     )

@@ -1,6 +1,6 @@
 
 import './CartContainer.scss';
-import { CartItem } from '../CartItem/CartItem';
+import { Cart } from '../Cart/Cart';
 
 
 export const CartContainer = () => {
@@ -8,7 +8,7 @@ export const CartContainer = () => {
     return (
         <div className="cartContainer">
             <h3>Carrito</h3>
-            <CartItem/> 
+            <Cart/> 
         </div>
     )
 }

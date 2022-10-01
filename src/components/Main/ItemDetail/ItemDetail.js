@@ -11,7 +11,7 @@ export const ItemDetail = ({item}) => {
 
     const {addToCart, isInCart} = useContext (CartContext)
 
-    const [cantidad, setCantidad] = useState (1) //Estado, gral se usa setXXX. const [variable, fn] = useState (valor de variable)
+    const [cantidad, setCantidad] = useState (0) //Estado, gral se usa setXXX. const [variable, fn] = useState (valor de variable)
 
     const handleAgregar = () => {
 
@@ -22,6 +22,7 @@ export const ItemDetail = ({item}) => {
             precio: item.precio,
             descuento: item.descuento,
             precioOff: item.precio - (item.precio * (item.descuento/100)),
+            stock: item.stock,
             cantidad    
         }
 
@@ -39,26 +40,33 @@ export const ItemDetail = ({item}) => {
                     precio= {item.precio}
                     descuento= {item.descuento}
                 />
-                <h5 className="my-3">Stock</h5>
-                <p className="my-3">Cantidad: {item.stock} items disponibles</p>
+                <a href="" className="itemDetail__sectionTwo__medioPago">Ver los medios de pago</a>
 
                 {
-                    isInCart (item.id) //devuelve true o false
-                    ? <>
-                        <Link to={`/cart`} className="my-2 itemDetail__sectionTwo__button">
-                            <button className="btn btn-danger itemDetail__sectionTwo__button__link">Ir al carrito</button>
-                        </Link>
-                        <Link to={`/orderPurchase`} className="my-2 itemDetail__sectionTwo__button">
-                            <button className="btn btn-outline-danger itemDetail__sectionTwo__button__link">Terminar compra</button>
-                        </Link>
+                    isInCart (item.id)
+                    ?   <>
+                            <Link to={`/cart`} className="my-2 itemDetail__sectionTwo__button">
+                                <button className="btn btn-danger itemDetail__sectionTwo__button__link">Ir al carrito</button>
+                            </Link>
+                            <Link to={`/orderPurchase`} className="my-2 itemDetail__sectionTwo__button">
+                                <button className="btn btn-outline-danger itemDetail__sectionTwo__button__link">Terminar compra</button>
+                            </Link>
                         </>
                     : 
-                        <ItemCount 
-                        stock={item.stock}
-                        counter={cantidad}
-                        setCounter= {setCantidad}
-                        handleAgregar={handleAgregar}
-                        />
+                        <>
+                            <ItemCount 
+                                stock={item.stock}
+                                counter={cantidad}
+                                setCounter= {setCantidad}
+                            />
+                            <div className="itemDetail__sectionTwo__button my-2">
+                                <button 
+                                    onClick={handleAgregar} 
+                                    className={`btn buttonAddCart__button__item ${cantidad!==0 ? "btn-outline-danger" : "btn btn-outline-secondary"}`}
+                                    disabled={cantidad===0}
+                                >Agregar al carrito</button>          
+                            </div>
+                        </>
                 }               
             </div>
         </div>

@@ -9,3 +9,11 @@
         text-align: center;
     }
 }
+
+
+@media screen and (max-width: 540px) {
+    .itemDetailContainer {
+        padding:0rem;
+        margin: 0rem;
+    }
+}

@@ -29,3 +29,9 @@ $color: #942e2e;
         font-size: 1em;
     }
 }
+
+@media screen and (max-width: 540px) {
+    .logo__text {
+        display:none;
+    }
+}

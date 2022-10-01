@@ -33,17 +33,11 @@ export const ItemListContainer = () => {
         }
 
 
-
-        // const q = pruebaId
-        //          ? query (productosRef, where ('genero', '==', pruebaId))
-        //          : productosRef
-
         getDocs (q)
 
             .then((res) => {
                 const productosDB = res.docs.map ((doc)=> ({id:doc.id, ...doc.data ()}))
                 setItems (productosDB)
-                console.log (productosDB)
             })
 
             .finally(() => {
@@ -75,7 +69,6 @@ export const ItemListContainer = () => {
                 ? <Loader/>
                 : <ItemList items = {items}/>
             }
-
         </div>
     )
 }

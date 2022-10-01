@@ -49,3 +49,10 @@
         }
     }
 }
+
+@media screen and (max-width: 540px) {
+    .orderPurchaseContainer__infPurchase {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}

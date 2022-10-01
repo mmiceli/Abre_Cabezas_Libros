@@ -5,26 +5,32 @@ a {
 }
 
 .precio {
-    color: rgb(180, 179, 179);
-}
 
-
-.precioFinal {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
 
-        &__descuento {
-            padding-left: 0.5rem;
-            color: rgb(74, 158, 74);
-            font-size: 0.9em;
-        }
+    &__precioInicial {
+        color: rgb(180, 179, 179);
+    }
+
+    &__precioFinal {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    
+            &__descuento {
+                padding-left: 0.5rem;
+                color: rgb(74, 158, 74);
+                font-size: 0.9em;
+            }
+    }
+
 }
 
-.medioPago {
-    color:  rgb(74, 158, 74);
-}
+
 
 
 

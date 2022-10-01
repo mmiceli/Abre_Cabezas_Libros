@@ -1,7 +1,4 @@
 
-import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { Item } from '../Item/Item';
 import './ItemCost.scss';
 
 export const ItemCost = ({precio, descuento}) => {
@@ -12,25 +9,25 @@ export const ItemCost = ({precio, descuento}) => {
         precio = (precio - (precio * (descuento/100)))
     }
 
-
     return (
-            <>
-                {descuento 
-                    ?
-                        <>
-                        <del className="precio my-3">{precioInicial}$</del>
-                        <div className="precioFinal">
-                            <h4 className="">{precio}$</h4>
-                            <p className="precioFinal__descuento">{descuento}% OFF</p>
-                        </div>
-                        </>
-                    :
-                        <div className="precioFinal__uno">
-                            <h4 className="">{precio}$</h4>
-                        </div>
-                }
-
-                <a href="" className="medioPago">Ver los medios de pago</a>
-            </>            
+        <>
+            {descuento 
+            ?
+                <div className='precio'>
+                    <del className="precio__precioInicial">{precioInicial}$</del>
+                    <div className="precio__precioFinal">
+                        <h5 className="">{precio}$</h5>
+                        <p className="precio__precioFinal__descuento">{descuento}% OFF</p>
+                    </div>
+                </div>
+            :
+                <div className='precio'>
+                    <br/>
+                    <div className="">
+                        <h5 className="">{precio}$</h5>
+                    </div>
+                </div>
+            }               
+        </>            
     )
 }

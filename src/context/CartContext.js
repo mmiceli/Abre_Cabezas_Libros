@@ -19,12 +19,19 @@ export const CartProvider = ({children}) => {
       return cart.some ((item) => item.id===id)
     }
   
-    const cartTotalQuantity = () => {
-      return cart.reduce ((acc, item) => acc + item.cantidad, 0)
+    const cartTotalQuantity = () => { 
+        return cart.reduce ((acc, item) => acc + item.cantidad, 0)
     }
 
     const cartTotalCost = () => {
         return cart.reduce ((acc, item) => acc + item.cantidad * item.precioOff, 0)
+    }
+
+    const cartItemTotalCost = (id) => {
+        let itemEncontrado = cart.find((item) => item.id === id)
+        let index = cart.indexOf(itemEncontrado)
+        let itemTotalCost= cart[index].cantidad * cart[index].precioOff
+        return itemTotalCost
     }
 
     const clearCart = () => {
@@ -37,11 +44,11 @@ export const CartProvider = ({children}) => {
             cancelButtonColor: '#d33',
             cancelButtonText: 'Cancelar',
             confirmButtonText: 'Si!'
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
                 setCart ([])
             }
-          })
+        })
     }
 
     const finishPurchase = (id) => {
@@ -59,6 +66,16 @@ export const CartProvider = ({children}) => {
     const removeItemCart = (id) => {
         setCart (cart.filter ((item) => item.id !== id))
     }
+
+    const modifyItemCart = (id, cantidad) => {
+        if (id!==null) {
+            let itemEncontrado = cart.find((item) => item.id === id)
+            let index = cart.indexOf(itemEncontrado)
+            cart[index].cantidad= cantidad
+            localStorage.setItem('carro', JSON.stringify(cart))
+        }
+        setCart ([...cart])
+    }
     
     useEffect (() => {
         localStorage.setItem ('carro', JSON.stringify (cart))
@@ -71,9 +88,11 @@ export const CartProvider = ({children}) => {
             isInCart,
             cartTotalQuantity,
             cartTotalCost,
+            cartItemTotalCost,
             clearCart,
             finishPurchase,
-            removeItemCart 
+            removeItemCart,
+            modifyItemCart 
         }}>
             {children}
         </CartContext.Provider>

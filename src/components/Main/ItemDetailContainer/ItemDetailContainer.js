@@ -1,6 +1,5 @@
 
-import './ItemDetailContainer.scss';
-//import { pedirDatos } from '../../../helpers/pedirDatos';
+import './ItemDetailContainer.scss';    
 import { useEffect, useState } from 'react';
 import { ItemDetail } from '../ItemDetail/ItemDetail';
 import { Loader } from '../Loader/Loader'
@@ -12,7 +11,6 @@ export const ItemDetailContainer = () => {
 
     const [item, setItem] = useState (null)
     const [loading, setLoading] = useState(true)
-
     const {itemId} = useParams ()        
 
     useEffect (() => {
@@ -29,17 +27,7 @@ export const ItemDetailContainer = () => {
             .finally(() => {
                 setLoading(false)
             })
-        // pedirDatos ()
-        //     .then ((res)=> {
-        //         setItem (res.find((item)=> item.id === Number(itemId)))
-        //     })
-        //     .catch( (error) => {
-        //         console.log(error)
-        //     })
-        //     .finally(() => {
-        //         setLoading(false)
-        //     })
-                
+
     }, [])
 
     return (

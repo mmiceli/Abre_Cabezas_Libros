@@ -9,3 +9,10 @@
     margin: 0rem 6rem;
     color: #942e2e;
 }
+
+@media screen and (max-width: 540px) {
+    .cartContainer {
+        padding: 1rem 0rem;
+        margin: 0rem;
+    }
+}

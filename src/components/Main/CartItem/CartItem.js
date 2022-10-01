@@ -1,40 +1,39 @@
+
 import './CartItem.scss';
-import { useContext } from "react";
-import { CartContext } from "../../../context/CartContext";
 import { BsTrashFill } from "react-icons/bs";
-import { Link } from 'react-router-dom';
+import { useContext, useState } from "react";
+import { CartContext } from "../../../context/CartContext";
+import { ItemCost } from '../ItemCost/ItemCost';
+import { ItemCount } from '../ItemCount/ItemCount';
 
 
-export const CartItem = () => {
+export const CartItem = ({item}) => {
 
-    const {cart, cartTotalCost, removeItemCart, clearCart} = useContext (CartContext)
+    const {removeItemCart, cartItemTotalCost} = useContext (CartContext)
+    const [cantidad, setCantidad] = useState (item.cantidad)
 
-
-    if (cart.length===0) {
-        return (
-            <div className='cartEmpty'>
-                <h4>Tu carrito se encuentra vacío</h4>
-                <p className="my-2">Tenemos disponible una gran cantidad de libros</p>
-                <Link to={`/`} className="cartEmpty__link my-2">Comenza a comprar ahora</Link>
-            </div>
-        )
-    }
-    
     return (
-        <div className="cartItem">
-            {cart.map ((item)=> (
-            <div className='cartItem__item' key={item.id}>
-                <img className='cartItem__item__img' src={item.img}/>
-                <h6 className='cartItem__item__nombre'>{item.nombre}</h6>
-                <p className='cartItem__item__precio'>precio: {item.precioOff}$</p>
-                <p className='cartItem__item__cantidad'>cantidad: {item.cantidad} item</p>
-                <button onClick={() => removeItemCart(item.id)} className="btn btn-danger"><BsTrashFill/></button>
+        <div className='cartItem'>
+            <img className='cartItem__img' src={item.img}/>
+            <h6 className='cartItem__nombre'>{item.nombre}</h6>
+            <div className='cartItem__precio'>
+                <ItemCost 
+                    precio= {item.precio}
+                    descuento= {item.descuento}
+                />
             </div>
-            ))}
-            <h5 className='cartItem__total'>Total: {cartTotalCost ()}$</h5>
-            <Link to={'/orderPurchase'} className="btn btn-danger cartItem__button">Terminar compra</Link>
-            <hr/>
-            <button onClick={clearCart} className="btn btn-outline-danger cartItem__button">Vaciar carrito </button>
+            <div className='cartItem__cantidad'>
+                <ItemCount 
+                    stock={item.stock}
+                    counter={cantidad===0 ?removeItemCart(item.id):cantidad}
+                    setCounter= {setCantidad}
+                    id= {item.id}
+                />
+            </div>
+            <h5 className='cartItem__costoItem'>${cartItemTotalCost (item.id)}</h5>
+            <div className="cartItem__button">
+                <button onClick={() => removeItemCart(item.id)} className="btn btn-danger"><BsTrashFill/></button>
+            </div>   
         </div>
     )
 }

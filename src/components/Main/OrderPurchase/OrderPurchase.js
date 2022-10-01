@@ -4,10 +4,9 @@ import { useState } from 'react';
 import { useContext } from "react";
 import { CartContext } from "../../../context/CartContext";
 import { Navigate } from 'react-router-dom';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, getDocs, writeBatch, query, where, documentId} from 'firebase/firestore';
 import { db } from '../../../firebase/firebase'
 
-//min 
 
 export const OrderPurchase = () => {
 
@@ -28,7 +27,7 @@ export const OrderPurchase = () => {
 
     }
 
-    const handleSumit = (event) => {
+    const handleSumit = async (event) => {
          event.preventDefault ()
 
          const purchaseOrder = {
@@ -36,6 +35,8 @@ export const OrderPurchase = () => {
             items:cart,
             total:cartTotalCost (),
         }
+
+        //Alertas
 
         if (values.nombre.length<3) {
             alert ("Nombre incorrecto")
@@ -47,12 +48,46 @@ export const OrderPurchase = () => {
             return
         }
 
-        const ordenesRef = collection (db, 'Ordenes')
+        //bach de escritura para verificar el stock de los items en Firebase vs la cantidad del carrito
 
-        addDoc (ordenesRef, purchaseOrder) //Creo la orden en la bd.  la respuesta devuelve el id
-            .then ((doc) => {
-                finishPurchase (doc.id)
-            })
+        const bach = writeBatch (db)
+        const ordenesRef = collection (db, 'Ordenes')
+        const productosRef = collection (db, 'Productos')
+
+        const q= query (productosRef, where(documentId(), 'in', cart.map(item=> item.id))) 
+
+        const productos = await getDocs(q) //se obtienen los items de firebase que coinciden con los del carrito.
+        console.log (productos)
+
+        const outOfStock = [] //array de comparacion
+
+        productos.docs.forEach ((doc)=> {
+            const itemInCart = cart.find (item=> item.id===doc.id) //obtengo los items del carrito
+
+            if (doc.data().stock>=itemInCart.cantidad) {//si estock en Firebase >=cantidad agrego ordenes al bach de escritura.
+                bach.update (doc.ref, {
+                    stock: doc.data().stock-itemInCart.cantidad
+                })
+            }else{
+                outOfStock.push(itemInCart)//Si no tiene stock sufienciente,agrrego una copia al array de control
+            }
+
+        })
+
+        if (outOfStock.length===0) {
+            bach.commit() //si todo esta ok, envio el bach a Firebase
+                .then (()=> {
+                    addDoc (ordenesRef, purchaseOrder) //Creo la orden en la bd.  la respuesta devuelve el id
+                        .then ((doc) => {
+                            //setOrderId (doc.id)
+                            finishPurchase (doc.id)
+                        })
+                })
+        }else{
+            alert ("Items sin stock")
+        }
+
+
     }
 
     if (cart.length===0) {
@@ -98,5 +133,4 @@ export const OrderPurchase = () => {
             </div>
         </div>
     )
-
 }

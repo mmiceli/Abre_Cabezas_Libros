@@ -13,25 +13,22 @@ import { CartProvider} from './context/CartContext'
 
 const App = () => {
 
-
-
   return (
-    
-      <CartProvider>
-        <BrowserRouter>
-          <Header/>
-          <Routes>
-            <Route path='/' element={<ItemListContainer/>}/>
-            <Route path='/libros/:categoryId' element={<ItemListContainer/>}/>
-            <Route path='/busqueda/:busquedaId' element={<ItemListContainer/>}/>
-            <Route path='/item/:itemId' element={<ItemDetailContainer/>}/>
-            <Route path='/cart' element={<CartContainer/>}/>
-            <Route path='/orderPurchase' element={<OrderPurchase/>}/> 
-            <Route path='*' element={ <Navigate to="/"/>} />   
-          </Routes>
-          {/*<Footer/>*/}
-        </BrowserRouter>
-      </CartProvider>
+    <CartProvider>
+      <BrowserRouter>
+        <Header/>
+        <Routes>
+          <Route path='/' element={<ItemListContainer/>}/>
+          <Route path='/libros/:categoryId' element={<ItemListContainer/>}/>
+          <Route path='/busqueda/:busquedaId' element={<ItemListContainer/>}/>
+          <Route path='/item/:itemId' element={<ItemDetailContainer/>}/>
+          <Route path='/cart' element={<CartContainer/>}/>
+          <Route path='/orderPurchase' element={<OrderPurchase/>}/> 
+          <Route path='*' element={ <Navigate to="/"/>} />   
+        </Routes>
+        {/*<Footer/>*/}
+      </BrowserRouter>
+    </CartProvider>
   );
 }
 
