@@ -127,7 +127,17 @@ export const OrderPurchase = () => {
                             type={'text'} 
                             className='form-control my-2' 
                             placeholder='Direccion'/>
-                        <button className="btn btn-danger orderPurchaseContainer__infPurchase__form__input__button" type='submit'>Enviar</button>
+                        <input 
+                            name= "telefono"
+                            value={values.telefono} 
+                            onChange={handleInputChange} 
+                            type={'text'} 
+                            className='form-control my-2' 
+                            placeholder='Telefono'/>
+                        <button 
+                            className="btn btn-danger orderPurchaseContainer__infPurchase__form__input__button" 
+                            type='submit'
+                            >Enviar</button>
                     </form>
                 </div>
             </div>
